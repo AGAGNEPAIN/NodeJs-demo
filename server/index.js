@@ -16,7 +16,7 @@ server.on('request', async (request, response) => {
         sendResponse(response, code, 'Hello world !');
         break;
       case '/exemple':
-        console.log('1 - Before no-blocking function');
+        console.log('1 - Before non-blocking function');
 
         fs.readFile('./server/index.html', {}, (err, data) => {
           if (err) throw err;
@@ -27,7 +27,7 @@ server.on('request', async (request, response) => {
           }, 2000)
         });
 
-        console.log('2 - After no-blocking function');
+        console.log('2 - After non-blocking function');
         break;
       default:
           sendResponse(response, 404, '404\nOups!');
